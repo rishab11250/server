@@ -1,7 +1,7 @@
 {
-  "name": "server",
+  "name": "get",
   "version": "1.0.0",
-  "description": "",
+  "description": "auto deploy on render",
   "homepage": "https://github.com/rishab11250/server#readme",
   "bugs": {
     "url": "https://github.com/rishab11250/server/issues"
@@ -11,11 +11,11 @@
     "url": "git+https://github.com/rishab11250/server.git"
   },
   "license": "ISC",
-  "author": "",
+  "author": "Rishab",
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node index.js"
   },
   "dependencies": {
     "express": "^5.2.1",
