@@ -7,7 +7,6 @@ const users = [
     { id: 2, name: "Priyesha", role: "mentor" }
 ];
 
-
 app.get("/", (req, res) => {
     res.send("Express server is running");
 });
@@ -16,14 +15,6 @@ app.get("/users", (req, res) => {
     console.log(users)
     res.status(200).json(users);
 });
-
-
-app.get("/user/test/:user_id", (req, res) => {
-    console.log(req);
-    res.status(200).json(users);    // send response
-});
-
-
 
 app.get("/users/:id", (req, res) => {
     const userId = Number(req.params.id);
@@ -34,6 +25,23 @@ app.get("/users/:id", (req, res) => {
     }
 
     res.status(200).json(user);
+});
+
+app.use(express.json());
+
+app.post("/users", (req, res) => {
+    const newUser = {
+        id: users.length + 1,
+        name: req.body.name,
+        role: req.body.role
+    };
+
+    users.push(newUser);
+
+    res.status(201).json({
+        message: "User created",
+        user: newUser
+    });
 });
 
 app.listen(3000, () => {
